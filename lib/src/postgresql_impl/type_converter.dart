@@ -131,8 +131,8 @@ class DefaultTypeConverter implements TypeConverter {
   
     if (value is bool)
       return value.toString();
-  
-    if (value is Map)
+    // convert Lists to JSON by default until array encoding is implemented
+    if (value is Map || value is List)
       return encodeString(JSON.encode(value));
   
     if (value is List)
